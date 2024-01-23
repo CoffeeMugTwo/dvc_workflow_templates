@@ -1,0 +1,47 @@
+schema: '2.0'
+stages:
+  create_data:
+    cmd: python src/script_a.py --output data/raw_data.csv
+    deps:
+    - path: src/script_a.py
+      hash: md5
+      md5: eef43246cedfc4b1fce288a80dc5b7cb
+      size: 483
+    outs:
+    - path: data/raw_data.csv
+      hash: md5
+      md5: 44ce948f4e724e4abb947e7678db3774
+      size: 4203
+  process_data:
+    cmd: python src/script_b.py --input data/raw_data.csv --output data/processed_data.csv
+    deps:
+    - path: data/raw_data.csv
+      hash: md5
+      md5: 44ce948f4e724e4abb947e7678db3774
+      size: 4203
+    - path: src/script_b.py
+      hash: md5
+      md5: 9dcfa1178bda2465db12aa161ac140ac
+      size: 744
+    outs:
+    - path: data/processed_data.csv
+      hash: md5
+      md5: 23d86c687469324366e6f58429ffd75a
+      size: 16013
+  process_data_test:
+    cmd: python src/script_b.py --input data/raw_data.csv --output data/processed_data_test.csv
+      --test
+    deps:
+    - path: data/raw_data.csv
+      hash: md5
+      md5: 44ce948f4e724e4abb947e7678db3774
+      size: 4203
+    - path: src/script_b.py
+      hash: md5
+      md5: 9dcfa1178bda2465db12aa161ac140ac
+      size: 744
+    outs:
+    - path: data/processed_data_test.csv
+      hash: md5
+      md5: 10a41444c440b0121b5c2bde4f6f6a14
+      size: 238
