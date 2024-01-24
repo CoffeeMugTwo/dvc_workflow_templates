@@ -1,3 +1,5 @@
 /raw_data.csv
 /processed_data.csv
 /processed_data_test.csv
+/model.txt
+/plot.pdf

@@ -4,32 +4,92 @@ stages:
     cmd: python src/script_a.py --output data/raw_data.csv
 
     deps:
-      - src/script_a.py
+    - src/script_a.py
 
-    outs: 
-      - data/raw_data.csv
+    outs:
+    - data/raw_data.csv
 
   process_data:
 
     cmd: python src/script_b.py --input data/raw_data.csv --output data/processed_data.csv
 
     deps:
-      - src/script_b.py
-      - data/raw_data.csv
+    - src/script_b.py
+    - data/raw_data.csv
 
     outs:
-      - data/processed_data.csv
+    - data/processed_data.csv
 
   process_data_test:
 
-    cmd: python src/script_b.py 
-           --input data/raw_data.csv
-           --output data/processed_data_test.csv
-           --test
+    cmd: python src/script_b.py --input data/raw_data.csv --output data/processed_data_test.csv
+      --test
 
-    deps: 
-      - src/script_b.py
-      - data/raw_data.csv
+    deps:
+    - src/script_b.py
+    - data/raw_data.csv
 
     outs:
-      - data/processed_data_test.csv
+    - data/processed_data_test.csv
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
+artifacts:
+  poly_d1:
+    path: data/model.txt
+    type: model
+  plot_d1:
+    path: data/plot.pdf
+    type: plot
+  poly_d2:
+    path: data/model.txt
+    type: model
+  plot_d2:
+    path: data/plot.pdf
+    type: plot
+  poly_d3:
+    path: data/model.txt
+    type: model
+  plot_d3:
+    path: data/plot.pdf
+    type: plot
+  poly_d4:
+    path: data/model.txt
+    type: model
+  plot_d4:
+    path: data/plot.pdf
+    type: plot
+  poly_d5:
+    path: data/model.txt
+    type: model
+  plot_d5:
+    path: data/plot.pdf
+    type: plot
+  poly_d6:
+    path: data/model.txt
+    type: model
+  plot_d6:
+    path: data/plot.pdf
+    type: plot
+  poly_d7:
+    path: data/model.txt
+    type: model
+  plot_d7:
+    path: data/plot.pdf
+    type: plot
+  poly_d8:
+    path: data/model.txt
+    type: model
+  plot_d8:
+    path: data/plot.pdf
+    type: plot
+  poly_d9:
+    path: data/model.txt
+    type: model
+  plot_d9:
+    path: data/plot.pdf
+    type: plot

@@ -1,0 +1,5 @@
+outs:
+- md5: a19fccd48aa96903930eae8ce45a5ae8
+  size: 17977
+  hash: md5
+  path: plot.pdf
