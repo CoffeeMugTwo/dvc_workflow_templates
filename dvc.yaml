@@ -31,8 +31,23 @@ stages:
 
     outs:
     - data/processed_data_test.csv
-params:
-- dvclive/params.yaml
+
+  train_model:
+
+    cmd: python src/train_model.py --input data/processed_data.csv --output data/
+
+    deps:
+    - src/train_model.py
+    - data/processed_data.csv
+
+    outs:
+    - data/model.txt
+    - data/plot.pdf
+
+    params:
+    - poly_model.degree
+
+
 metrics:
 - dvclive/metrics.json
 plots:
